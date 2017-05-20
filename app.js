@@ -2,7 +2,7 @@ const express = require('express');
 const moment = require('moment');
 
 var app = express();
-
+app.set('port', (process.env.PORT || 3000))
 app.get('/:id',function(req, res){
   var date;
   var num = req.params.id
@@ -25,6 +25,6 @@ app.get('/:id',function(req, res){
     });
 }
 })
-app.listen(3000, function(){
+app.listen(app.get('port'), function(){
   console.log("Working");
 })
