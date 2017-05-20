@@ -1,8 +1,12 @@
 const express = require('express');
 const moment = require('moment');
-
+const fs = require('fs');
+const path = require('path');
 var app = express();
 app.set('port', (process.env.PORT || 3000))
+app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
 app.get('/:id',function(req, res){
   var date;
   var num = req.params.id
@@ -25,9 +29,7 @@ app.get('/:id',function(req, res){
     });
   }
 })
-app.get("/", function(req,res){
-  res.sendFile(path.join(__dirname, 'index.html'))
-})
+
 app.listen(app.get('port'), function(){
   console.log("Working");
 })
