@@ -18,12 +18,12 @@ app.get('/:id',function(req, res){
       unix: date.format("X"),
       natural: date.format("MMMM D, YYYY")
     });
-  } else {
+  }else{
     res.json({
       unix: null,
       natural: null
     });
-}
+  }
 })
 app.listen(app.get('port'), function(){
   console.log("Working");
