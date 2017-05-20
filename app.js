@@ -6,6 +6,7 @@ var app = express();
 app.get('/:id',function(req, res){
   var date;
   var num = req.params.id
+  console.log(num);
   if(/^\d{8,}$/.test(num)){
     date = moment(num, "X");
   }else{
